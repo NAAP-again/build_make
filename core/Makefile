@@ -3418,7 +3418,13 @@ ifneq (,$(filter address, $(SANITIZE_TARGET)))
   endif
 endif
 
-FULL_SYSTEMIMAGE_DEPS += $(INTERNAL_ROOT_FILES) $(INSTALLED_FILES_FILE_ROOT)
+systemimage-changelog: $(INTERNAL_SYSTEMIMAGE_FILES)
+	@echo -e "Making changelog!"
+	$(hide) APKCERTS=$(APKCERTS_FILE) ./vendor/naap/tools/changelog
+
+.PHONY: systemimage-changelog
+
+FULL_SYSTEMIMAGE_DEPS += $(INTERNAL_ROOT_FILES) $(INSTALLED_FILES_FILE_ROOT) systemimage-changelog
 
 define write-file-lines
 $(1):
