@@ -3419,11 +3419,12 @@ ifneq (,$(filter address, $(SANITIZE_TARGET)))
 endif
 
 .PHONY: systemimage-changelog
-ifneq (1,$(USER_BUILD_NO_CHANGELOG))
 systemimage-changelog:
+ifneq (1,$(USER_BUILD_NO_CHANGELOG))
 	@echo "Making changelog!"
 	./vendor/naap/tools/changelog $(PRODUCT_OUT)
-
+else
+	@echo "Skipping changelog!"
 endif
 CHANGELOG := systemimage-changelog
 
