@@ -3419,9 +3419,9 @@ ifneq (,$(filter address, $(SANITIZE_TARGET)))
 endif
 
 .PHONY: systemimage-changelog
-systemimage-changelog: $(INTERNAL_SYSTEMIMAGE_FILES)
-	@echo -e "Making changelog!"
-	$(hide) APKCERTS=$(APKCERTS_FILE) ./vendor/naap/tools/changelog
+systemimage-changelog:
+	@echo "Making changelog!"
+	./vendor/naap/tools/changelog
 
 CHANGELOG := systemimage-changelog
 
