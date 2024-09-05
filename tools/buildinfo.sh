@@ -59,6 +59,6 @@ if [ -n "$BUILD_THUMBPRINT" ] ; then
   echo "ro.build.thumbprint=$BUILD_THUMBPRINT"
 fi
 
-echo "ro.yaap.device=$YAAP_DEVICE"
+echo "ro.naap.device=$NAAP_DEVICE"
 
 echo "# end build properties"
